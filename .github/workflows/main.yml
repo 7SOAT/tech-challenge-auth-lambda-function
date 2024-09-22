@@ -38,4 +38,3 @@ jobs:
         SERVERLESS_DISABLE_AUTO_UPDATE: true
         SLS_DISABLE_AUTO_UPDATE: true
         SERVERLESS_PLATFORM_DISABLE: true
-        AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
