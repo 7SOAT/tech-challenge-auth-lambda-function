@@ -1,0 +1,26 @@
+org: null
+
+app: null
+
+service: afluga-auth
+
+plugins:
+  - serverless-offline
+
+custom:
+  iam:
+    role: arn:aws:iam::121059646461:role/LabRole
+    disableRoleCreation: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  lambdaHashingVersion: 20201221
+  cfnRole: arn:aws:iam::121059646461:role/LabRole
+  timeout: 30
+  iam:
+    role: arn:aws:iam::121059646461:role/LabRole
+
+functions:
+  api:
+    handler: handler.handler
