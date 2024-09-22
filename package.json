@@ -1,6 +1,9 @@
 {
     "name": "tech-challenge-auth-lambda-function",
     "version": "1.0.0",
-    "description": ""
+    "description": "",
+    "devDependencies": {
+      "serverless-offline": "^13.8.0"
+    }
   }
   
