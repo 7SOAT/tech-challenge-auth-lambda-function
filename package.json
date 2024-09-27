@@ -1,9 +1,21 @@
 {
     "name": "tech-challenge-auth-lambda-function",
     "version": "1.0.1",
+    "scripts": {
+        "build": "tsc",
+        "start": "npm run build &&  node ./dist/main.js ",
+        "deploy": "serverless deploy",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
     "description": "",
+    "dependencies": {
+        "aws-sdk": "^2.1691.0",
+        "dotenv": "^16.4.5",
+        "jose": "^5.9.3"
+    },
     "devDependencies": {
-      "serverless-offline": "^13.8.0"
+        "@types/aws-lambda": "^8.10.92",
+        "serverless-offline": "^13.8.0",
+        "typescript": "^5.6.2"
     }
-  }
-  
+}

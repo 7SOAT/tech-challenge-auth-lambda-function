@@ -9,18 +9,30 @@ plugins:
 
 custom:
   iam:
-    role: arn:aws:iam::121059646461:role/LabRole
+    role: arn:aws:iam::658623738065:role/LabRole
     disableRoleCreation: true
 
 provider:
   name: aws
   runtime: nodejs18.x
   lambdaHashingVersion: 20201221
-  cfnRole: arn:aws:iam::121059646461:role/LabRole
+  cfnRole: arn:aws:iam::658623738065:role/LabRole
   timeout: 30
   iam:
-    role: arn:aws:iam::121059646461:role/LabRole
+    role: arn:aws:iam::658623738065:role/LabRole
+  environment: 
+    AWS_REGION: ${env:AWS_REGION}
+    AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY_ID: ${env:AWS_SECRET_ACCESS_KEY_ID}
+    AWS_SESSION_TOKEN: ${env:AWS_SESSION_TOKEN}
+    AWS_COGNITO_USER_POOL_ID: ${env:AWS_COGNITO_USER_POOL_ID}
+    AWS_COGNITO_CLIENT_ID: ${env:AWS_COGNITO_CLIENT_ID}
+    AWS_COGNITO_CLIENT_SECRET: ${env:AWS_COGNITO_CLIENT_SECRET}
+    AWS_COGNITO_DEFAULT_USER_GROUP: ${env:AWS_COGNITO_DEFAULT_USER_GROUP}
+    AWS_COGNITO_CLIENT_AUTH_FLOW: ${env:AWS_COGNITO_CLIENT_AUTH_FLOW}
+    AWS_COGNITO_TEMPORARY_PASSWORD: ${env:AWS_COGNITO_TEMPORARY_PASSWORD}
+
 
 functions:
   api:
-    handler: handler.handler
+    handler: dist/main.authUsers
