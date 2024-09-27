@@ -32,7 +32,6 @@ provider:
     AWS_COGNITO_CLIENT_AUTH_FLOW: ${env:AWS_COGNITO_CLIENT_AUTH_FLOW}
     AWS_COGNITO_TEMPORARY_PASSWORD: ${env:AWS_COGNITO_TEMPORARY_PASSWORD}
 
-
 functions:
   api:
     handler: dist/main.authUsers
