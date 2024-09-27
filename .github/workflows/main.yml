@@ -35,8 +35,10 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Deploy with Serverless
-      run: serverless deploy
+    - name: Serverless Deploy
+      uses: serverless/github-action@v3.2
+      with:
+        args: deploy
       env:
         SERVERLESS_PLATFORM_VENDOR: aws
         SERVERLESS_DISABLE_AUTO_UPDATE: true
