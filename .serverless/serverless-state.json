@@ -1,0 +1,131 @@
+{
+  "service": {
+    "service": "afluga-auth",
+    "serviceObject": {
+      "name": "afluga-auth"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "lambdaHashingVersion": "20201221",
+      "cfnRole": "arn:aws:iam::658623738065:role/LabRole",
+      "timeout": 30,
+      "iam": {
+        "role": "arn:aws:iam::658623738065:role/LabRole"
+      },
+      "stage": "dev",
+      "region": "us-east-1",
+      "versionFunctions": true,
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "ApiLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/afluga-auth-dev-api"
+            }
+          },
+          "ApiLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": "serverless-framework-deployments-us-east-1-478b966d-ebc2",
+                "S3Key": "serverless/afluga-auth/dev/1727740013141-2024-09-30T23:46:53.141Z/afluga-auth.zip"
+              },
+              "Handler": "handler.handler",
+              "Runtime": "nodejs18.x",
+              "FunctionName": "afluga-auth-dev-api",
+              "MemorySize": 1024,
+              "Timeout": 30,
+              "Role": "arn:aws:iam::658623738065:role/LabRole"
+            },
+            "DependsOn": [
+              "ApiLogGroup"
+            ]
+          },
+          "ApiLambdaVersionaad6zoC56qALaAhF9Yl0mkcd2kgB2IvXtMOPfOwsPI": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "ApiLambdaFunction"
+              },
+              "CodeSha256": "EwZY47m5RenMbNFoximoV2BC1kzJ3f+r5cVRoIkf/xo="
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": "serverless-framework-deployments-us-east-1-478b966d-ebc2",
+            "Export": {
+              "Name": "sls-afluga-auth-dev-ServerlessDeploymentBucketName"
+            }
+          },
+          "ApiLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "ApiLambdaVersionaad6zoC56qALaAhF9Yl0mkcd2kgB2IvXtMOPfOwsPI"
+            },
+            "Export": {
+              "Name": "sls-afluga-auth-dev-ApiLambdaFunctionQualifiedArn"
+            }
+          }
+        }
+      },
+      "vpc": {}
+    },
+    "custom": {
+      "iam": {
+        "role": "arn:aws:iam::658623738065:role/LabRole",
+        "disableRoleCreation": true
+      }
+    },
+    "plugins": [
+      "serverless-offline"
+    ],
+    "pluginsData": {},
+    "functions": {
+      "api": {
+        "handler": "handler.handler",
+        "events": [],
+        "name": "afluga-auth-dev-api",
+        "package": {},
+        "memory": 1024,
+        "timeout": 30,
+        "runtime": "nodejs18.x",
+        "vpc": {},
+        "versionLogicalId": "ApiLambdaVersionaad6zoC56qALaAhF9Yl0mkcd2kgB2IvXtMOPfOwsPI"
+      }
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.yml",
+    "initialServerlessConfig": {
+      "service": "afluga-auth",
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
+      },
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "functions": {
+        "$ref": "$[\"service\"][\"functions\"]"
+      },
+      "org": null,
+      "app": null
+    },
+    "app": null,
+    "appId": null,
+    "org": null,
+    "orgId": null,
+    "layers": {},
+    "artifact": "C:\\Users\\Gabri\\OneDrive\\Documents\\sla\\tech-challenge-auth-lambda-function\\.serverless\\afluga-auth.zip"
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/afluga-auth/dev/1727740013141-2024-09-30T23:46:53.141Z",
+    "artifact": "afluga-auth.zip"
+  }
+}
