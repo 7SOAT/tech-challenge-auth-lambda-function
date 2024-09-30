@@ -18,6 +18,7 @@ provider:
   lambdaHashingVersion: 20201221
   cfnRole: arn:aws:iam::658623738065:role/LabRole
   timeout: 30
+  role: arn:aws:iam::658623738065:role/LabRole
   iam:
     role: arn:aws:iam::658623738065:role/LabRole
 
