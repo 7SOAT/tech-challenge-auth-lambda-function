@@ -44,3 +44,4 @@ jobs:
         SERVERLESS_DISABLE_AUTO_UPDATE: true
         SLS_DISABLE_AUTO_UPDATE: true
         SERVERLESS_PLATFORM_DISABLE: true
+        AWS_REGION: ${{ secrets.AWS_REGION }}
