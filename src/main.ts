@@ -7,7 +7,7 @@ export interface AuthCustomerRequest {
   name?: string;
 }
 
-const authUser = async (request: AuthCustomerRequest): Promise<any> => {
+export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
   const { cpf, email, name } = request;
   const isGuest: boolean = !cpf && !email && !name;
   let isAdmin = false;
@@ -35,5 +35,3 @@ const authUser = async (request: AuthCustomerRequest): Promise<any> => {
     return new Error(error);
   }
 };
-
-exports.authUser = authUser;
