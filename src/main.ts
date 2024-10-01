@@ -39,7 +39,7 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
       }
 
       isAdmin = userGroups?.find((group) => group.GroupName === "admins") ? true : false;
-      console.log("isAdmin", isAdmin);
+      console.log("isAdminaa", isAdmin);
 
     }
 
