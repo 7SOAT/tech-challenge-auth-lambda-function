@@ -16,5 +16,7 @@ export const generateToken = async (tokenData: TokenData) => {
     .setExpirationTime('1h')
     .sign(secret);
 
+  console.log(token);
+
   return { token };
 };
