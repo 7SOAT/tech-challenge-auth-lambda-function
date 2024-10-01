@@ -17,6 +17,7 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
   let userAttributes = {};
 
   if (isGuest) return await generateToken({ isAdmin });
+  
   console.log("User is not a guest", {cpf, email, name});
 
   try {
