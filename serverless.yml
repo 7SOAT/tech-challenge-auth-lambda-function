@@ -9,18 +9,17 @@ plugins:
 
 custom:
   iam:
-    role: arn:aws:iam::121059646461:role/LabRole
+    role: arn:aws:iam::658623738065:role/LabRole
     disableRoleCreation: true
 
 provider:
   name: aws
   runtime: nodejs18.x
   lambdaHashingVersion: 20201221
-  cfnRole: arn:aws:iam::121059646461:role/LabRole
+  cfnRole: arn:aws:iam::658623738065:role/LabRole
   timeout: 30
-  role: arn:aws:iam::658623738065:role/LabRole
   iam:
-    role: arn:aws:iam::121059646461:role/LabRole
+    role: arn:aws:iam::658623738065:role/LabRole
 
 functions:
   api:
