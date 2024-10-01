@@ -49,3 +49,6 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
     return new Error(error);
   }
 };
+
+
+authUser({ cpf: "47051065809"})
