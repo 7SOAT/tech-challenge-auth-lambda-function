@@ -8,12 +8,15 @@ export interface AuthCustomerRequest {
 }
 
 export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
+  console.log("Starting to process an auth request", request);
+  
   const { cpf, email, name } = request;
   const isGuest: boolean = !cpf && !email && !name;
   let isAdmin = false;
   let userAttributes = {};
 
   if (isGuest) return generateToken({ isAdmin });
+  console.log("User is not a guest", {cpf, email, name});
 
   try {
     if (cpf) {
