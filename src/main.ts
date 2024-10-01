@@ -15,7 +15,8 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
   let isAdmin = false;
   let userAttributes = {};
 
-  if (isGuest) return generateToken({ isAdmin });
+  if (isGuest) return await generateToken({ isAdmin });
+  
   console.log("User is not a guest", {cpf, email, name});
 
   try {
@@ -32,7 +33,7 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
       isAdmin = userGroups?.find((group) => group.GroupName === "admins") ? true : false;
     }
 
-    return generateToken({ ...userAttributes, isAdmin });
+    return await generateToken({ ...userAttributes, isAdmin });
 
   } catch (error: any) {
     return new Error(error);
