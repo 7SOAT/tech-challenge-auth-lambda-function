@@ -23,4 +23,4 @@ provider:
 
 functions:
   api:
-    handler: handler.handler
+    handler: dist/main.authUser
