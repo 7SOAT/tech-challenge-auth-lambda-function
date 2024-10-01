@@ -1,3 +1,3 @@
 exports.handler = async (event, context) => {
-    return JSON.parse({ message: "Hello, world!"});
+    return JSON.stringify({ message: "Hello, world!"});
 };
