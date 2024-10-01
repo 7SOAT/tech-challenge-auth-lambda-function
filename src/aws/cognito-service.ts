@@ -68,9 +68,14 @@ export async function getUser(cpf: string) {
     };
 
     try {
+        console.log("vai dar certo")
         const result = await cognitoISP.adminGetUser(params).promise();
-        return result?.UserAttributes ? { ...transformAttributes(result.UserAttributes), cpf } : { cpf }
+        console.log("eu confio")
+        const sla = result?.UserAttributes ? { ...transformAttributes(result.UserAttributes), cpf } : { cpf }
+        console.log("vambora", sla)
+        return sla
     } catch (err: any) {
+        console.log("deue rrado", err)
         if (err.code === 'UserNotFoundException') {
             return undefined;
         } else {
