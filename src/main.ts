@@ -8,7 +8,7 @@ export interface AuthCustomerRequest {
   name?: string;
 }
 
-export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
+export const authUser = async (request: AuthCustomerRequest, context?: any): Promise<any> => {
   console.log("Starting to process an auth request", request);
   
   const { cpf, email, name } = request;
@@ -24,14 +24,14 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
     console.log(SetupEnvironments())
     if (cpf) {
       const user = await getUser(cpf);
-      console.log("User", user);
+      console.log("Userr", user);
       userAttributes = user ?? await registerUser(cpf, email, name);
 
       console.log("userAttributes", userAttributes);
 
       const userGroups = await getUserGroups(cpf);
 
-      console.log("userGroups", userGroups);
+      console.log("userGroupss  ", userGroups);
 
       if (!user || userGroups!.length === 0) {
         addUserInDefaultGroup(cpf)
@@ -49,6 +49,3 @@ export const authUser = async (request: AuthCustomerRequest): Promise<any> => {
     return new Error(error);
   }
 };
-
-
-authUser({ cpf: "47051065809"})
