@@ -49,6 +49,3 @@ export const authUser = async (request: AuthCustomerRequest, context?: any): Pro
     return new Error(error);
   }
 };
-
-
-authUser({ cpf: '47051065809'})
