@@ -26,6 +26,7 @@ resource "aws_lambda_function" "auth_function" {
 
   tags = {
     Name = "authentication-lambda-function"
+    STAGE = "dev"
   }
 }
 
