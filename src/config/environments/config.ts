@@ -9,7 +9,6 @@ export interface ProcessEnv {
     AWS_COGNITO_TEMPORARY_PASSWORD: string;
     AWS_COGNITO_CLIENT_AUTH_FLOW: string;
     AWS_COGNITO_CLIENT_ID: string;
-    AWS_COGNITO_CLIENT_SECRET: string;
     AWS_COGNITO_DEFAULT_USER_GROUP: string;
 }
 
@@ -25,7 +24,6 @@ export function SetupEnvironments(): ProcessEnv{
         AWS_COGNITO_TEMPORARY_PASSWORD: process.env.AWS_COGNITO_TEMPORARY_PASSWORD!,
         AWS_COGNITO_CLIENT_AUTH_FLOW: process.env.AWS_COGNITO_CLIENT_AUTH_FLOW!,
         AWS_COGNITO_CLIENT_ID: process.env.AWS_COGNITO_CLIENT_ID!,
-        AWS_COGNITO_CLIENT_SECRET: process.env.AWS_COGNITO_CLIENT_SECRET!,
         AWS_COGNITO_DEFAULT_USER_GROUP: process.env.AWS_COGNITO_DEFAULT_USER_GROUP!,
     }
 }

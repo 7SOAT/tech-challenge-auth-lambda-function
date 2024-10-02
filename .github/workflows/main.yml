@@ -9,6 +9,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:  
+      TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.TF_VAR_AWS_ACCESS_KEY_ID }}
+      TF_VAR_AWS_COGNITO_CLIENT_AUTH_FLOW: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_AUTH_FLOW }}
+      TF_VAR_AWS_COGNITO_CLIENT_ID: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_ID }}
+      TF_VAR_AWS_COGNITO_DEFAULT_USER_GROUP: ${{ secrets.TF_VAR_AWS_COGNITO_DEFAULT_USER_GROUP }}
+      TF_VAR_AWS_COGNITO_TEMPORARY_PASSWORD: ${{ secrets.TF_VAR_AWS_COGNITO_TEMPORARY_PASSWORD }}
+      TF_VAR_AWS_COGNITO_USER_POOL_ID: ${{ secrets.TF_VAR_AWS_COGNITO_USER_POOL_ID }}
+      TF_VAR_AWS_REGION: ${{ secrets.TF_VAR_AWS_REGION }}
+      TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_VAR_AWS_SECRET_ACCESS_KEY }}
+      TF_VAR_AWS_SESSION_TOKEN: ${{ secrets.TF_VAR_AWS_SESSION_TOKEN }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -24,34 +35,29 @@ jobs:
     - name: Build project
       run: npm run build
 
-    - name: Install Serverless CLI
-      run: sudo npm install -g serverless --unsafe-perm=true
+    - name: Create zip of node_modules and dist
+      run: |
+        zip -r terraform/lambda.zip node_modules dist
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-access-key-id: ${{ secrets.TF_VAR_AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.TF_VAR_AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.TF_VAR_AWS_SESSION_TOKEN }}
+        aws-region: ${{ secrets.TF_VAR_AWS_REGION }}
 
-    - name: Serverless Deploy
-      uses: serverless/github-action@v3.2
-      with:
-        args: deploy
-      env:
-        SERVERLESS_PLATFORM_VENDOR: aws
-        SERVERLESS_DISABLE_AUTO_UPDATE: true
-        SLS_DISABLE_AUTO_UPDATE: true
-        SERVERLESS_PLATFORM_DISABLE: true
-        REGION: ${{ secrets.AWS_REGION }}
-        ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-        SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
-        COGNITO_TEMPORARY_PASSWORD: ${{ secrets.AWS_COGNITO_TEMPORARY_PASSWORD }}
-        COGNITO_USER_POOL_ID: ${{ secrets.AWS_COGNITO_USER_POOL_ID }}
-        COGNITO_DEFAULT_USER_GROUP: ${{ secrets.AWS_COGNITO_DEFAULT_USER_GROUP }}
-        COGNITO_CLIENT_AUTH_FLOW: ${{ secrets.AWS_COGNITO_CLIENT_AUTH_FLOW }}
-        COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
-        COGNITO_CLIENT_SECRET: ${{ secrets.AWS_COGNITO_CLIENT_SECRET }}
-        ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+    - name: Terraform Init
+      working-directory: terraform
+      run: |
+        terraform init
+  
+    - name: Terraform Plan
+      working-directory: terraform
+      run: |
+        terraform plan -var-file="terraform.tfvars"
+
+    - name: Terraform Apply
+      working-directory: terraform
+      run: |
+        terraform apply -auto-approve -var-file="terraform.tfvars"
