@@ -38,7 +38,7 @@ export const authUser = async (request: AuthCustomerRequest, context?: any): Pro
         console.log("addUserInDefaultGroup");
       }
 
-      isAdmin = userGroups?.find((group) => group.GroupName === "admins") ? true : false;
+      isAdmin = userGroups?.find((group: any) => group.GroupName === "admins") ? true : false;
       console.log("isAdminaa", isAdmin);
 
     }

@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 export interface ProcessEnv {
     AWS_REGION: string;
     AWS_ACCESS_KEY_ID: string;
-    AWS_SECRET_ACCESS_KEY_ID: string;
+    AWS_SECRET_ACCESS_KEY: string;
     AWS_SESSION_TOKEN: string;
     AWS_COGNITO_USER_POOL_ID: string;
     AWS_COGNITO_TEMPORARY_PASSWORD: string;
@@ -19,7 +19,7 @@ export function SetupEnvironments(): ProcessEnv{
     return {
         AWS_REGION: process.env.AWS_REGION!,
         AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID!,
-        AWS_SECRET_ACCESS_KEY_ID: process.env.AWS_SECRET_ACCESS_KEY_ID!,
+        AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY!,
         AWS_SESSION_TOKEN: process.env.AWS_SESSION_TOKEN!,
         AWS_COGNITO_USER_POOL_ID: process.env.AWS_COGNITO_USER_POOL_ID!,
         AWS_COGNITO_TEMPORARY_PASSWORD: process.env.AWS_COGNITO_TEMPORARY_PASSWORD!,
