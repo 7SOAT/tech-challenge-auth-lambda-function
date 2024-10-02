@@ -7,9 +7,9 @@ terraform {
     }
 
     backend "s3" {
-        bucket = "afluga-kubernetes-terraform-backend"
+        bucket = "afluga-kubernetes-terraform-backends"
         key = "env/dev/auth/terraform.tfstate"
-        region = "us-east-1"      
+        region = "us-east-1"
         encrypt = true
     }
 }

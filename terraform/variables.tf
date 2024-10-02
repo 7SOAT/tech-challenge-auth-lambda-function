@@ -35,10 +35,6 @@ variable "aws_cognito_client_id" {
     type = string
 }
 
-variable "aws_cognito_client_secret" {
-    type = string
-}
-
 variable "aws_cognito_default_user_group" {
     type = string
 }

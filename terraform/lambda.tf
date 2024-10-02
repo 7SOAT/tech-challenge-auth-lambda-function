@@ -3,7 +3,7 @@ resource "aws_lambda_function" "auth_function" {
   role = var.aws_iam_labrole_arn
   handler = "dist/main.authUser"
   runtime = "nodejs18.x"
-  
+
   filename = "lambda.zip"
 
   memory_size = 128
@@ -19,7 +19,6 @@ resource "aws_lambda_function" "auth_function" {
         COGNITO_TEMPORARY_PASSWORD = var.aws_cognito_temporary_password
         COGNITO_CLIENT_AUTH_FLOW = var.aws_cognito_client_auth_flow
         COGNITO_CLIENT_ID = var.aws_cognito_client_id
-        COGNITO_CLIENT_SECRET = var.aws_cognito_client_secret
         COGNITO_DEFAULT_USER_GROUP = var.aws_cognito_default_user_group
     }
   }
