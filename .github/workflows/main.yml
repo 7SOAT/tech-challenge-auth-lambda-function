@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     env:  
-      TF_VAR_AWS_ACCESS_KEY_ID: ${{ secrets.TF_VAR_AWS_ACCESS_KEY_ID }}
-      TF_VAR_AWS_COGNITO_CLIENT_AUTH_FLOW: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_AUTH_FLOW }}
-      TF_VAR_AWS_COGNITO_CLIENT_ID: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_ID }}
-      TF_VAR_AWS_COGNITO_DEFAULT_USER_GROUP: ${{ secrets.TF_VAR_AWS_COGNITO_DEFAULT_USER_GROUP }}
-      TF_VAR_AWS_COGNITO_TEMPORARY_PASSWORD: ${{ secrets.TF_VAR_AWS_COGNITO_TEMPORARY_PASSWORD }}
-      TF_VAR_AWS_COGNITO_USER_POOL_ID: ${{ secrets.TF_VAR_AWS_COGNITO_USER_POOL_ID }}
-      TF_VAR_AWS_REGION: ${{ secrets.TF_VAR_AWS_REGION }}
-      TF_VAR_AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_VAR_AWS_SECRET_ACCESS_KEY }}
-      TF_VAR_AWS_SESSION_TOKEN: ${{ secrets.TF_VAR_AWS_SESSION_TOKEN }}
+      TF_VAR_aws_access_key_id: ${{ secrets.TF_VAR_AWS_ACCESS_KEY_ID }}
+      TF_VAR_aws_cognito_client_auth_flow: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_AUTH_FLOW }}
+      TF_VAR_aws_cognito_client_id: ${{ secrets.TF_VAR_AWS_COGNITO_CLIENT_ID }}
+      TF_VAR_aws_cognito_default_user_group: ${{ secrets.TF_VAR_AWS_COGNITO_DEFAULT_USER_GROUP }}
+      TF_VAR_aws_cognito_temporary_password: ${{ secrets.TF_VAR_AWS_COGNITO_TEMPORARY_PASSWORD }}
+      TF_VAR_aws_cognito_user_pool_id: ${{ secrets.TF_VAR_AWS_COGNITO_USER_POOL_ID }}
+      TF_VAR_aws_region: ${{ secrets.TF_VAR_AWS_REGION }}
+      TF_VAR_aws_secret_access_key: ${{ secrets.TF_VAR_AWS_SECRET_ACCESS_KEY }}
+      TF_VAR_aws_session_token: ${{ secrets.TF_VAR_AWS_SESSION_TOKEN }}
 
     steps:
     - name: Checkout code
