@@ -19,6 +19,7 @@ jobs:
       TF_VAR_aws_region: ${{ secrets.TF_VAR_AWS_REGION }}
       TF_VAR_aws_secret_access_key: ${{ secrets.TF_VAR_AWS_SECRET_ACCESS_KEY }}
       TF_VAR_aws_session_token: ${{ secrets.TF_VAR_AWS_SESSION_TOKEN }}
+      TF_VAR_aws_iam_labrole_arn: ${{ secrets.TF_VAR_AWS_IAM_LABROLE_ARN }}
 
     steps:
     - name: Checkout code
