@@ -16,14 +16,14 @@ export function SetupEnvironments(): ProcessEnv{
     dotenv.config();
 
     return {
-        AWS_REGION: process.env.AWS_REGION!,
-        AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID!,
-        AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY!,
-        AWS_SESSION_TOKEN: process.env.AWS_SESSION_TOKEN!,
-        AWS_COGNITO_USER_POOL_ID: process.env.AWS_COGNITO_USER_POOL_ID!,
-        AWS_COGNITO_TEMPORARY_PASSWORD: process.env.AWS_COGNITO_TEMPORARY_PASSWORD!,
-        AWS_COGNITO_CLIENT_AUTH_FLOW: process.env.AWS_COGNITO_CLIENT_AUTH_FLOW!,
-        AWS_COGNITO_CLIENT_ID: process.env.AWS_COGNITO_CLIENT_ID!,
-        AWS_COGNITO_DEFAULT_USER_GROUP: process.env.AWS_COGNITO_DEFAULT_USER_GROUP!,
+        AWS_REGION: process.env.REGION!,
+        AWS_ACCESS_KEY_ID: process.env.ACCESS_KEY_ID!,
+        AWS_SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY!,
+        AWS_SESSION_TOKEN: process.env.SESSION_TOKEN!,
+        AWS_COGNITO_USER_POOL_ID: process.env.COGNITO_USER_POOL_ID!,
+        AWS_COGNITO_TEMPORARY_PASSWORD: process.env.COGNITO_TEMPORARY_PASSWORD!,
+        AWS_COGNITO_CLIENT_AUTH_FLOW: process.env.COGNITO_CLIENT_AUTH_FLOW!,
+        AWS_COGNITO_CLIENT_ID: process.env.COGNITO_CLIENT_ID!,
+        AWS_COGNITO_DEFAULT_USER_GROUP: process.env.COGNITO_DEFAULT_USER_GROUP!,
     }
 }
