@@ -38,7 +38,7 @@ jobs:
 
     - name: Create zip of node_modules and dist
       run: |
-        zip -r terraform/lambda.zip node_modules dist
+        zip -r terraform/lambda.zip dist
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
