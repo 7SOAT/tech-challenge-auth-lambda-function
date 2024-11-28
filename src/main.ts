@@ -8,10 +8,10 @@ export interface AuthCustomerRequest {
   name?: string;
 }
 
-export const authUser = async (request: AuthCustomerRequest, context?: any): Promise<any> => {
-  console.log("Starting to process an auth request", request);
+export const authUser = async (request: { body: AuthCustomerRequest}, context?: any): Promise<any> => {
+  console.log("Starting to process an auth request", request.body);
   
-  const { cpf, email, name } = request;
+  const { cpf, email, name } = request.body;
   const isGuest: boolean = !cpf && !email && !name;
   let isAdmin = false;
   let userAttributes = {};
