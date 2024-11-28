@@ -14,6 +14,7 @@ export const authUser = async (request: any, context?: any): Promise<any> => {
   console.log("sdjfbisudb", JSON.parse(request.body), JSON.parse(JSON.stringify(request.body)).cpf)
   const { cpf, email, name } = JSON.parse(JSON.stringify(request.body));
   console.log('aaaaa', cpf, email, name)
+
   const isGuest: boolean = !cpf && !email && !name;
   let isAdmin = false;
   let userAttributes = {};
