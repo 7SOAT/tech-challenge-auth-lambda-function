@@ -13,6 +13,7 @@ export const authUser = async (request: { body: AuthCustomerRequest}, context?: 
   
   const { cpf, email, name } = JSON.parse(JSON.stringify(request.body));
   console.log('aaaaa', cpf, email, name)
+
   const isGuest: boolean = !cpf && !email && !name;
   let isAdmin = false;
   let userAttributes = {};
