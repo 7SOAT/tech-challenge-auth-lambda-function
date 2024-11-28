@@ -9,7 +9,7 @@ export interface AuthCustomerRequest {
 }
 
 export const authUser = async (request: { body: AuthCustomerRequest}, context?: any): Promise<any> => {
-  console.log("Starting to process an auth request", request.body);
+  console.log("Starting to process an auth request", context, request, request.body);
   
   const { cpf, email, name } = request.body;
   const isGuest: boolean = !cpf && !email && !name;
