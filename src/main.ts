@@ -8,9 +8,10 @@ export interface AuthCustomerRequest {
   name?: string;
 }
 
-export const authUser = async (request: { body: AuthCustomerRequest}, context?: any): Promise<any> => {
+export const authUser = async (request: any, context?: any): Promise<any> => {
   console.log("Starting to process an auth request", context, request, request.body);
   
+  console.log("sdjfbisudb", JSON.parse(request.body), JSON.parse(JSON.stringify(request.body)).cpf)
   const { cpf, email, name } = JSON.parse(JSON.stringify(request.body));
   console.log('aaaaa', cpf, email, name)
 
