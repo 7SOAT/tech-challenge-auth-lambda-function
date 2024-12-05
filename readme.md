@@ -2,6 +2,11 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<h2 id="quality-gate"> 🧪 Quality Gate </h2>
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-payments&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-payments)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-payments&metric=coverage)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-payments)
+
 <h2 id="requisitos"> 📃 Dependências</h2>
 
 <p align="justify">
